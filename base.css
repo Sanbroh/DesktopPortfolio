@@ -1,5 +1,11 @@
-body {
+.desktop {
   background-color: #5a8ad3;
+  height: 92.5vh;
+  width: 100vw;
+  left: 0;
+  top: 0;
+  position: absolute;
+  z-index: -1;
 }
 
 .grid {
@@ -9,11 +15,6 @@ body {
   top: 0;
   left: 0;
   grid-gap: 0;
-}
-
-#grid-box {
-  height: 15vh;
-  width: 7.5vw;
 }
 
 .bottom-nav {
@@ -36,7 +37,13 @@ body {
 }
 
 .folder:hover {
-  background-color: #7fe7ea;
+  background-color: rgba(173, 216, 230, .35);
+}
+
+.recycle-img {
+  height: 10vh;
+  width: 5vw;
+  margin: 0 auto;
 }
 
 .folder-img {
@@ -82,4 +89,9 @@ body {
 .folder-inner .folder-inner-exit:hover {
   background-color: red;
   color: white;
+}
+
+#grid-box {
+  height: 15vh;
+  width: 7.5vw;
 }
