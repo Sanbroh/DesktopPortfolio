@@ -12,249 +12,30 @@
     <p onclick="closeFolder()" class="folder-inner-exit">x</p>
   </div>
 
+  <div id="desktop-checkbox"></div>
+  <div id="desktop-checkbox-hold"></div>
+
   <div class="desktop">
-    <div class="grid">
-      <div id="grid-box full" ondrop="drop(event)" ondragover="allowDrop(event)">
-        <div id="recycle-bin" ondblclick="openFolder()" class="folder-profile folder" draggable="true" ondragstart="drag(event, this)">
+    <div class="grid" id="grid">
+      <div id="grid-box full" ondrop="drop(event)" ondragover="allowDrop(event)" onclick="desktopUnselectEmpty(this)">
+        <div id="recycle-bin" onclick="desktopSelect(this)" onmouseout="hideCheckbox();folderExitHover(this);" onmouseover="moveCheckbox(this);folderHover(this);" ondblclick="openFolder()" class="folder-profile folder" draggable="true" ondragstart="drag(event, this)">
           <img draggable="false" class="recycle-img" src="https://winaero.com/blog/wp-content/uploads/2017/06/Recycle-Bin-Full-Icon.png" />
           <p class="folder-text">Recycle Bin</p>
         </div>
       </div>
-      <div id="grid-box full" ondrop="drop(event)" ondragover="allowDrop(event)">
-        <div id="folder-1" ondblclick="openFolder()" class="folder-profile folder" draggable="true" ondragstart="drag(event, this)">
+      <div id="grid-box full" ondrop="drop(event)" ondragover="allowDrop(event)" onclick="desktopUnselectEmpty(this)">
+        <div id="folder-1" onclick="desktopSelect(this)" onmouseout="hideCheckbox();folderExitHover(this);" onmouseover="moveCheckbox(this);folderHover(this);" ondblclick="openFolder()" class="folder-profile folder" draggable="true" ondragstart="drag(event, this)">
           <img draggable="false" class="folder-img" src="https://winaero.com/blog/wp-content/uploads/2018/11/folder-icon-big-256.png" />
           <p class="folder-text">Profile</p>
         </div>
       </div>
-      <div id="grid-box full" ondrop="drop(event)" ondragover="allowDrop(event)">
-        <div id="folder-2" ondblclick="openFolder()" class="folder-projects folder" draggable="true" ondragstart="drag(event, this)">
+      <div id="grid-box full" ondrop="drop(event)" ondragover="allowDrop(event)" onclick="desktopUnselectEmpty(this)">
+        <div id="folder-2" onclick="desktopSelect(this)" onmouseout="hideCheckbox();folderExitHover(this);" onmouseover="moveCheckbox(this);folderHover(this);" ondblclick="openFolder()" class="folder-projects folder" draggable="true" ondragstart="drag(event, this)">
           <img draggable="false" class="folder-img" src="https://winaero.com/blog/wp-content/uploads/2018/11/folder-icon-big-256.png" />
           <p class="folder-text">Projects</p>
         </div>
       </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-      </div>
-      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event, this)" onclick="desktopUnselectEmpty(this)">
 
       </div>
     </div>

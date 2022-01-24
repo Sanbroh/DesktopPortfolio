@@ -1,6 +1,6 @@
 .desktop {
   background-color: #5a8ad3;
-  height: 92.5vh;
+  height: 100vh;
   width: 100vw;
   left: 0;
   top: 0;
@@ -10,7 +10,7 @@
 
 .grid {
   display: grid;
-  grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto;
+  grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
   position: absolute;
   top: 0;
   left: 0;
@@ -20,40 +20,45 @@
 .bottom-nav {
   background-color: black;
   width: 100vw;
-  height: 7.5vh;
+  height: 42px;
   left: 0;
   bottom: 0;
   position: absolute;
 }
 
 .folder {
-  width: 5vw;
+  width: 72px;
   cursor: default;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: auto;
-  margin-top: 0.5vh;
-  padding: 0.5vh 0.25vw;
-}
-
-.folder:hover {
-  background-color: rgba(173, 216, 230, .35);
+  margin-top: 4px;
+  padding: 6px 5.5px;
+  background-color: rgba(173, 216, 230, .0);
 }
 
 .recycle-img {
-  height: 10vh;
-  width: 5vw;
-  margin: 0 auto;
+  height: 52px;
+  width: 52px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 4px;
 }
 
 .folder-img {
-  height: 10vh;
-  width: 5vw;
-  margin: 0 auto;
+  height: 52px;
+  width: 52px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 4px;
 }
 
 .folder-text {
-  font-size: 1vw;
+  font-size: 12px;
+  font-family: sans-serif;
+  text-shadow: 0.5px 0.5px black;
   color: white;
   margin: 0 auto;
   text-align: center;
@@ -92,6 +97,19 @@
 }
 
 #grid-box {
-  height: 15vh;
-  width: 7.5vw;
+  height: 100px;
+  width: 84px;
+}
+
+#desktop-checkbox, #desktop-checkbox-hold {
+  height: 12px;
+  width: 12px;
+  position: absolute;
+  background-color: white;
+  border-color: black;
+  border-width: 0.5px;
+  border-style: solid;
+  left: 0;
+  top: 0;
+  display: none;
 }
