@@ -3,6 +3,8 @@ window.onload = function() {
   elmHold = document.getElementById("recycle-bin");
 }
 
+var elmHold = "";
+
 function formGrid() {
   var horzGrid = Math.floor(screen.width / 84) - 1;
   var vertGrid = Math.floor(screen.height / 100) - 2;
@@ -38,8 +40,6 @@ function hideCheckbox() {
   document.getElementById("desktop-checkbox").style.display = "none";
 }
 
-var elmHold = "";
-
 function desktopSelect(elm) {
   desktopUnselect();
   elm.style.backgroundColor = "rgba(173, 216, 230, .35)";
@@ -60,11 +60,12 @@ function desktopUnselectEmpty(elm) {
   if (elm.id != "grid-box full") {
     document.getElementById("desktop-checkbox-hold").style.display = "none";
     elmHold.style.backgroundColor = "rgba(173, 216, 230, .0)";
+    elmHold = elm;
   }
 }
 
 function folderHover(elm) {
-  elm.style.backgroundColor = "rgba(173, 216, 230, .35)"
+  elm.style.backgroundColor = "rgba(173, 216, 230, .35)";
   // if (elm.style.backgroundColor == "rgba(173, 216, 230, .0)") {
   //   elm.style.backgroundColor = "rgba(173, 216, 230, .35)";
   // } else if (elm.style.backgroundColor == "rgba(173, 216, 230, .35)") {
@@ -84,6 +85,7 @@ function allowDrop(ev) {
 
 function drag(ev, elm) {
   elm.parentNode.id = "grid-box";
+  elmHold = elm;
   ev.dataTransfer.setData("text", ev.target.id);
 }
 

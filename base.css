@@ -113,3 +113,11 @@
   top: 0;
   display: none;
 }
+
+#desktop-checkbox-hold {
+  font-size: 12px;
+  font-weight: 400;
+  color: black;
+  text-align: center;
+  line-height: 12px;
+}
