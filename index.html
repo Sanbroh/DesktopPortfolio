@@ -14,8 +14,9 @@
 
   <div id="desktop-checkbox"></div>
   <div id="desktop-checkbox-hold">✓</div>
+  <div id="placeholder"></div>
 
-  <div class="desktop">
+  <div class="desktop" id="desktop">
     <div class="grid" id="grid">
       <div id="grid-box full" ondrop="drop(event)" ondragover="allowDrop(event)" onclick="desktopUnselectEmpty(this)">
         <div id="recycle-bin" onclick="desktopSelect(this)" onmouseout="hideCheckbox();folderExitHover(this);" onmouseover="moveCheckbox(this);folderHover(this);" ondblclick="openFolder()" class="folder-profile folder" draggable="true" ondragstart="drag(event, this)">

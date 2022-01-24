@@ -1,6 +1,6 @@
 window.onload = function() {
   formGrid();
-  elmHold = document.getElementById("recycle-bin");
+  elmHold = document.getElementById("placeholder");
 }
 
 var elmHold = "";
@@ -84,8 +84,10 @@ function allowDrop(ev) {
 }
 
 function drag(ev, elm) {
+  desktopUnselect();
   elm.parentNode.id = "grid-box";
   elmHold = elm;
+  desktopSelect(elm);
   ev.dataTransfer.setData("text", ev.target.id);
 }
 
