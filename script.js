@@ -5,15 +5,16 @@ window.onload = function() {
   createFolder("Projects", "projects", 2);
   createFolder("Awards", "awards", 3);
   createText("Read Me", "read-me", 4);
+  createApp("Chrome", "chrome", "https://www.science.co.il/internet/browsers/Chrome-2020-256.png", horzGrid-1);
   elmHold = document.getElementById("placeholder");
   document.getElementById("nav-start-img").style.filter = "brightness(0) invert(1)";
 }
 
 var elmHold = "";
+var horzGrid = Math.floor(screen.width / 84) - 1;
+var vertGrid = Math.floor(screen.height / 100) - 2;
 
 function formGrid() {
-  var horzGrid = Math.floor(screen.width / 84) - 1;
-  var vertGrid = Math.floor(screen.height / 100) - 2;
   for (let i = 1; i < horzGrid * vertGrid; i++) {
     var grid = document.getElementById("grid-box").cloneNode(true);
     document.getElementById("grid").appendChild(grid);
@@ -56,12 +57,34 @@ function createText(name, givenId, gridPos) {
   pos.id = "grid-box full";
 }
 
+function createApp(name, givenId, img, gridPos) {
+  var app = document.getElementById("default-app").cloneNode(true);
+  app.id = "app-" + givenId;
+  var child = app.childNodes;
+  child[3].textContent = name;
+  child[1].src = img;
+  var pos = document.getElementById("grid").children[gridPos];
+  app.style.display = "inline-block";
+  pos.appendChild(app);
+  pos.id = "grid-box full";
+}
+
 function openFolder(elm) {
   document.getElementById("folder-inner").style.display = "block";
 }
 
 function closeFolder(elm) {
   document.getElementById("folder-inner").style.display = "none";
+}
+
+function openApp(elm) {
+  if (elm.id == "app-chrome") {
+    window.open();
+  }
+}
+
+function closeApp(elm) {
+
 }
 
 function moveCheckbox(elm) {
@@ -120,10 +143,8 @@ function allowDrop(ev) {
 }
 
 function drag(ev, elm) {
-  desktopUnselect();
-  elm.parentNode.id = "grid-box";
-  elmHold = elm;
   desktopSelect(elm);
+  elm.parentNode.id = "grid-box";
   ev.dataTransfer.setData("text", ev.target.id);
 }
 
@@ -133,6 +154,8 @@ function drop(ev, elm) {
   if (ev.target.id == "grid-box") {
     ev.target.appendChild(document.getElementById(data));
     ev.target.id = "grid-box full";
+  } else if (elmHold == ev.target) {
+    elmHold.parentNode.id = "grid-box full";
   }
   var child = ev.target.childNodes;
   desktopSelect(child[1]);

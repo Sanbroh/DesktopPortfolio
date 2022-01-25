@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Kevin's Website</title>
+<title>Desktop</title>
 <link href="base.css" type="text/css" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="script.js"></script>
@@ -17,6 +17,14 @@
   <div id="desktop-checkbox"></div>
   <div id="desktop-checkbox-hold">✓</div>
   <div id="placeholder"></div>
+
+  <div id="create-menu">
+
+  </div>
+  <div id="remove-menu">
+
+  </div>
+
   <div id="default-folder" onclick="desktopSelect(this)" onmouseout="hideCheckbox();folderExitHover(this);" onmouseover="moveCheckbox(this);folderHover(this);" ondblclick="openFolder(this)" class="folder" draggable="true" ondragstart="drag(event, this)">
     <img draggable="false" class="folder-img" src="https://winaero.com/blog/wp-content/uploads/2018/11/folder-icon-big-256.png" />
     <p class="folder-text">New Folder</p>
@@ -28,6 +36,10 @@
   <div id="default-text" onclick="desktopSelect(this)" onmouseout="hideCheckbox();folderExitHover(this);" onmouseover="moveCheckbox(this);folderHover(this);" ondblclick="openText(this)" class="folder" draggable="true" ondragstart="drag(event, this)">
     <img draggable="false" class="text-img" src="https://i.stack.imgur.com/6i4gY.png" />
     <p class="folder-text">New Text</p>
+  </div>
+  <div id="default-app" onclick="desktopSelect(this)" onmouseout="hideCheckbox();folderExitHover(this);" onmouseover="moveCheckbox(this);folderHover(this);" ondblclick="openApp(this)" class="folder" draggable="true" ondragstart="drag(event, this)">
+    <img draggable="false" class="app-img" src="https://icon-library.com/images/windows-file-icon/windows-file-icon-16.jpg" />
+    <p class="folder-text">New App</p>
   </div>
 
   <div class="desktop" id="desktop">

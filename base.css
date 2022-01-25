@@ -62,7 +62,7 @@
   background-color: rgba(173, 216, 230, .0);
 }
 
-.recycle-img, .folder-img, .text-img {
+.recycle-img, .folder-img, .text-img, .app-img {
   height: 52px;
   width: 52px;
   display: block;
@@ -155,6 +155,6 @@
   line-height: 12px;
 }
 
-#default-folder, #recycle-bin, #default-text {
+#default-folder, #recycle-bin, #default-text, #default-app {
   display: none;
 }
