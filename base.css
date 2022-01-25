@@ -37,16 +37,7 @@
   background-color: rgba(173, 216, 230, .0);
 }
 
-.recycle-img {
-  height: 52px;
-  width: 52px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 4px;
-}
-
-.folder-img {
+.recycle-img, .folder-img, .text-img {
   height: 52px;
   width: 52px;
   display: block;
@@ -97,6 +88,7 @@
 #grid-box {
   height: 100px;
   width: 84px;
+  /* border-style: solid; */
 }
 
 #desktop-checkbox, #desktop-checkbox-hold {
@@ -119,4 +111,8 @@
   color: black;
   text-align: center;
   line-height: 12px;
+}
+
+#default-folder, #recycle-bin, #default-text {
+  display: none;
 }

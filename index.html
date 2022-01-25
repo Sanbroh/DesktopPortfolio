@@ -9,33 +9,29 @@
 <body>
 
   <div class="folder-inner" id="folder-inner">
-    <p onclick="closeFolder()" class="folder-inner-exit">x</p>
+    <p onclick="closeFolder(this)" class="folder-inner-exit">x</p>
   </div>
+
+  <!-- Stored Elements --->
 
   <div id="desktop-checkbox"></div>
   <div id="desktop-checkbox-hold">✓</div>
   <div id="placeholder"></div>
+  <div id="default-folder" onclick="desktopSelect(this)" onmouseout="hideCheckbox();folderExitHover(this);" onmouseover="moveCheckbox(this);folderHover(this);" ondblclick="openFolder(this)" class="folder" draggable="true" ondragstart="drag(event, this)">
+    <img draggable="false" class="folder-img" src="https://winaero.com/blog/wp-content/uploads/2018/11/folder-icon-big-256.png" />
+    <p class="folder-text">New Folder</p>
+  </div>
+  <div id="recycle-bin" onclick="desktopSelect(this)" onmouseout="hideCheckbox();folderExitHover(this);" onmouseover="moveCheckbox(this);folderHover(this);" ondblclick="openFolder(this)" class="folder" draggable="true" ondragstart="drag(event, this)">
+    <img draggable="false" class="recycle-img" src="https://winaero.com/blog/wp-content/uploads/2017/06/Recycle-Bin-Full-Icon.png" />
+    <p class="folder-text">Recycle Bin</p>
+  </div>
+  <div id="default-text" onclick="desktopSelect(this)" onmouseout="hideCheckbox();folderExitHover(this);" onmouseover="moveCheckbox(this);folderHover(this);" ondblclick="openText(this)" class="folder" draggable="true" ondragstart="drag(event, this)">
+    <img draggable="false" class="text-img" src="https://i.stack.imgur.com/6i4gY.png" />
+    <p class="folder-text">New Text</p>
+  </div>
 
   <div class="desktop" id="desktop">
     <div class="grid" id="grid">
-      <div id="grid-box full" ondrop="drop(event)" ondragover="allowDrop(event)" onclick="desktopUnselectEmpty(this)">
-        <div id="recycle-bin" onclick="desktopSelect(this)" onmouseout="hideCheckbox();folderExitHover(this);" onmouseover="moveCheckbox(this);folderHover(this);" ondblclick="openFolder()" class="folder-profile folder" draggable="true" ondragstart="drag(event, this)">
-          <img draggable="false" class="recycle-img" src="https://winaero.com/blog/wp-content/uploads/2017/06/Recycle-Bin-Full-Icon.png" />
-          <p class="folder-text">Recycle Bin</p>
-        </div>
-      </div>
-      <div id="grid-box full" ondrop="drop(event)" ondragover="allowDrop(event)" onclick="desktopUnselectEmpty(this)">
-        <div id="folder-1" onclick="desktopSelect(this)" onmouseout="hideCheckbox();folderExitHover(this);" onmouseover="moveCheckbox(this);folderHover(this);" ondblclick="openFolder()" class="folder-profile folder" draggable="true" ondragstart="drag(event, this)">
-          <img draggable="false" class="folder-img" src="https://winaero.com/blog/wp-content/uploads/2018/11/folder-icon-big-256.png" />
-          <p class="folder-text">Profile</p>
-        </div>
-      </div>
-      <div id="grid-box full" ondrop="drop(event)" ondragover="allowDrop(event)" onclick="desktopUnselectEmpty(this)">
-        <div id="folder-2" onclick="desktopSelect(this)" onmouseout="hideCheckbox();folderExitHover(this);" onmouseover="moveCheckbox(this);folderHover(this);" ondblclick="openFolder()" class="folder-projects folder" draggable="true" ondragstart="drag(event, this)">
-          <img draggable="false" class="folder-img" src="https://winaero.com/blog/wp-content/uploads/2018/11/folder-icon-big-256.png" />
-          <p class="folder-text">Projects</p>
-        </div>
-      </div>
       <div id="grid-box" ondrop="drop(event)" ondragover="allowDrop(event, this)" onclick="desktopUnselectEmpty(this)">
 
       </div>
