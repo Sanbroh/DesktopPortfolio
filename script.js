@@ -6,6 +6,7 @@ window.onload = function() {
   createFolder("Awards", "awards", 3);
   createText("Read Me", "read-me", 4);
   elmHold = document.getElementById("placeholder");
+  document.getElementById("nav-start-img").style.filter = "brightness(0) invert(1)";
 }
 
 var elmHold = "";
@@ -135,4 +136,12 @@ function drop(ev, elm) {
   }
   var child = ev.target.childNodes;
   desktopSelect(child[1]);
+}
+
+function startHover() {
+  document.getElementById("nav-start-img").style.filter = "brightness(1.25)";
+}
+
+function startReset() {
+  document.getElementById("nav-start-img").style.filter = "brightness(0) invert(1)";
 }
