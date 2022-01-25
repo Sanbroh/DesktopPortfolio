@@ -150,15 +150,14 @@ function drag(ev, elm) {
 
 function drop(ev, elm) {
   ev.preventDefault();
-  var data = ev.dataTransfer.getData("text");
   if (ev.target.id == "grid-box") {
+    var data = ev.dataTransfer.getData("text");
     ev.target.appendChild(document.getElementById(data));
     ev.target.id = "grid-box full";
-  } else if (elmHold == ev.target) {
+  } else {
     elmHold.parentNode.id = "grid-box full";
   }
-  var child = ev.target.childNodes;
-  desktopSelect(child[1]);
+  desktopSelect(elmHold);
 }
 
 function startHover() {
