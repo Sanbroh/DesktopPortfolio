@@ -51,7 +51,7 @@
   display: block;
 }
 
-.folder {
+.desktop-element {
   width: 72px;
   cursor: default;
   margin-left: auto;
@@ -129,7 +129,7 @@
 
 #grid-box {
   height: 100px;
-  width: 84px;
+  width: 86px;
   /* border-style: solid; */
 }
 

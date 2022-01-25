@@ -11,6 +11,7 @@ window.onload = function() {
 }
 
 var elmHold = "";
+var lastSelected = "";
 var horzGrid = Math.floor(screen.width / 84) - 1;
 var vertGrid = Math.floor(screen.height / 100) - 2;
 var lineBreak = document.createElement("br");
@@ -26,6 +27,28 @@ function formGrid() {
   }
   document.getElementById("grid").style.gridTemplateColumns = autoCount;
   console.log(document.getElementById("grid"));
+}
+
+function selectLast() {
+  if (lastSelected.parentNode.id == "grid-box full") {
+    lastSelected.style.borderStyle = "dotted";
+    lastSelected.style.borderColor = "white";
+    lastSelected.style.borderWidth = "0.5px";
+    lastSelected.style.marginTop = "3.5px";
+    lastSelected.style.marginRight = "-1px";
+    lastSelected.children[0].style.marginLeft = "9px";
+    lastSelected.children[1].style.marginLeft = "-1px";
+  }
+}
+
+function unselectLast() {
+  lastSelected.style.borderStyle = "none";
+  lastSelected.style.borderColor = "none";
+  lastSelected.style.borderWidth = "none";
+  lastSelected.style.marginTop = "4px";
+  lastSelected.style.marginRight = "auto";
+  lastSelected.children[0].style.marginLeft = "auto";
+  lastSelected.children[1].style.marginLeft = "auto";
 }
 
 function createBin(gridPos) {
@@ -102,6 +125,8 @@ function hideCheckbox() {
 
 function desktopSelect(elm) {
   desktopUnselect();
+  lastSelected = elm;
+  selectLast();
   elm.style.backgroundColor = "rgba(173, 216, 230, .35)";
   elmHold = elm;
   var posX = elm.getBoundingClientRect().left + 16;
@@ -114,6 +139,9 @@ function desktopSelect(elm) {
 function desktopUnselect() {
   document.getElementById("desktop-checkbox-hold").style.display = "none";
   elmHold.style.backgroundColor = "rgba(173, 216, 230, .0)";
+  if (lastSelected != "") {
+    unselectLast();
+  }
 }
 
 function desktopUnselectEmpty(elm) {
