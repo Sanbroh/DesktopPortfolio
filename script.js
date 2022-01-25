@@ -98,8 +98,6 @@ function drop(ev, elm) {
     ev.target.appendChild(document.getElementById(data));
     ev.target.id = "grid-box full";
   }
-  if (ev.target.id == "grid-box" || ev.target.id == "grid-box full") {
-    var child = ev.target.childNodes;
-    desktopSelect(child[1]);
-  }
+  var child = ev.target.childNodes;
+  desktopSelect(child[1]);
 }

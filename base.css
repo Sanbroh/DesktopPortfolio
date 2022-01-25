@@ -65,11 +65,9 @@
 }
 
 .folder-inner {
-  background-image: url("img/folder.PNG");
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 80vh;
-  width: 65vw;
+  background-color: white;
+  height: 500px;
+  width: 800px;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -112,6 +110,7 @@
   left: 0;
   top: 0;
   display: none;
+  cursor: default;
 }
 
 #desktop-checkbox-hold {
