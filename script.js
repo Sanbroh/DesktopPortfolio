@@ -5,7 +5,7 @@ window.onload = function() {
   createFolder("Projects", "projects", 2);
   createFolder("Awards", "awards", 3);
   createText("Read Me", "read-me", 4);
-  createApp("Chrome", "chrome", "https://www.science.co.il/internet/browsers/Chrome-2020-256.png", horzGrid-1);
+  createApp("Google Chrome", "chrome", "https://www.science.co.il/internet/browsers/Chrome-2020-256.png", horzGrid-1);
   elmHold = document.getElementById("placeholder");
   document.getElementById("nav-start-img").style.filter = "brightness(0) invert(1)";
 }
@@ -13,6 +13,7 @@ window.onload = function() {
 var elmHold = "";
 var horzGrid = Math.floor(screen.width / 84) - 1;
 var vertGrid = Math.floor(screen.height / 100) - 2;
+var lineBreak = document.createElement("br");
 
 function formGrid() {
   for (let i = 1; i < horzGrid * vertGrid; i++) {
@@ -154,6 +155,8 @@ function drop(ev, elm) {
     var data = ev.dataTransfer.getData("text");
     ev.target.appendChild(document.getElementById(data));
     ev.target.id = "grid-box full";
+  } else if (ev.target.id == "grid-box full") {
+
   } else {
     elmHold.parentNode.id = "grid-box full";
   }
