@@ -188,11 +188,29 @@ var clipboard = "";
 function copy(elm) {
   if (elm.parentNode.id == "grid-box full") {
     clipboard = elm.cloneNode(true);
-    clipboard.id += "-copy";
-    if (clipboard.children[1].textContent.length < 20) {
-      clipboard.children[1].textContent += " - Copy";
-    } else if (clipboard.children[1].textContent.length < 23) {
-      clipboard.children[1].textContent += "...";
+    var testcase = clipboard.id;
+    var duplicates = 0;
+
+    while (testcase.substring(testcase.length-5, testcase.length) == "-copy") {
+      testcase = testcase.substring(0, testcase.length-5);
+    }
+
+    for (let i = 0; i < currLocation.childElementCount; i++) {
+      if (currLocation.children[i].id == "grid-box full"
+      && currLocation.children[i].children[0].id.length >= testcase.length
+      && currLocation.children[i].children[0].id.substring(0, testcase.length) == testcase) {
+        duplicates++;
+      }
+    }
+    clipboard.id = testcase;
+
+    for (let i = 0; i < duplicates; i++) {
+      clipboard.id += "-copy";
+      if (clipboard.children[1].textContent.length < 20) {
+        clipboard.children[1].textContent += " - Copy";
+      } else if (clipboard.children[1].textContent.length < 23) {
+        clipboard.children[1].textContent += "...";
+      }
     }
   }
 }
