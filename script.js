@@ -248,8 +248,8 @@ function drop(ev, elm) {
     var data = ev.dataTransfer.getData("text");
     ev.target.appendChild(document.getElementById(data));
     ev.target.id = "grid-box full";
-  } else if (ev.target.id == "grid-box full") {
-
+  } else if (elm.id == "grid-box full" && elm.children[0].id == "recycle-bin" && currSelected.id != "recycle-bin" && currSelected.id != "app-background-settings" && currSelected.id != "app-google-chrome") {
+    deleteElement(currSelected);
   } else {
     elmHold.parentNode.id = "grid-box full";
   }
