@@ -5,13 +5,18 @@ window.onload = function() {
   createFolder("Projects", "projects", 2);
   createFolder("Awards", "awards", 3);
   createText("Read Me", "read-me", 4);
-  createApp("Google Chrome", "chrome", "https://www.science.co.il/internet/browsers/Chrome-2020-256.png", horzGrid-1);
+  createApp("Google Chrome", "google-chrome", "https://www.science.co.il/internet/browsers/Chrome-2020-256.png", horzGrid-1);
+  createApp("Background Settings", "background-settings", "https://winaero.com/blog/wp-content/uploads/2017/04/personalize-desktop-icons-customize-icon.png", horzGrid-2);
   elmHold = document.getElementById("placeholder");
   document.getElementById("nav-start-img").style.filter = "brightness(0) invert(1)";
+  currLocation = document.getElementById("desktop").children[0];
+  checkButtonPress();
 }
 
 var elmHold = "";
 var lastSelected = "";
+var currSelected = "";
+var currLocation = "";
 var horzGrid = Math.floor(screen.width / 84) - 1;
 var vertGrid = Math.floor(screen.height / 100) - 2;
 var lineBreak = document.createElement("br");
@@ -26,7 +31,6 @@ function formGrid() {
     autoCount += "auto ";
   }
   document.getElementById("grid").style.gridTemplateColumns = autoCount;
-  console.log(document.getElementById("grid"));
 }
 
 function selectLast() {
@@ -49,6 +53,13 @@ function unselectLast() {
   lastSelected.style.marginRight = "auto";
   lastSelected.children[0].style.marginLeft = "auto";
   lastSelected.children[1].style.marginLeft = "auto";
+}
+
+function deleteElement(elm) {
+  elm.parentNode.id = "grid-box";
+  elm.remove();
+  desktopUnselect();
+  hideCheckbox();
 }
 
 function createBin(gridPos) {
@@ -102,7 +113,7 @@ function closeFolder(elm) {
 }
 
 function openApp(elm) {
-  if (elm.id == "app-chrome") {
+  if (elm.id == "app-google-chrome") {
     window.open();
   }
 }
@@ -126,6 +137,7 @@ function hideCheckbox() {
 function desktopSelect(elm) {
   desktopUnselect();
   lastSelected = elm;
+  currSelected = elm;
   selectLast();
   elm.style.backgroundColor = "rgba(173, 216, 230, .35)";
   elmHold = elm;
@@ -167,6 +179,41 @@ function folderExitHover(elm) {
   }
 }
 
+function renameFile(elm) {
+
+}
+
+var clipboard = "";
+
+function copy(elm) {
+  if (elm.parentNode.id == "grid-box full") {
+    clipboard = elm.cloneNode(true);
+    clipboard.id += "-copy";
+    if (clipboard.children[1].textContent.length < 20) {
+      clipboard.children[1].textContent += " - Copy";
+    } else if (clipboard.children[1].textContent.length < 21) {
+      clipboard.children[1].textContent += "...";
+    }
+  }
+}
+
+function paste() {
+  for (let i = 0; i < currLocation.childElementCount; i++) {
+    if (currLocation.children[i].id != "grid-box full") {
+      currLocation.children[i].appendChild(clipboard);
+      currLocation.children[i].id = "grid-box full";
+      currLocation.children[i].children[0].style.display = "inline-block";
+      desktopSelect(currLocation.children[i].children[0]);
+      copy(currLocation.children[i].children[0]);
+      break;
+    }
+  }
+}
+
+function pasteTo(location, gridPos) {
+
+}
+
 function allowDrop(ev) {
   ev.preventDefault();
 }
@@ -197,4 +244,23 @@ function startHover() {
 
 function startReset() {
   document.getElementById("nav-start-img").style.filter = "brightness(0) invert(1)";
+}
+
+// Source: https://stackoverflow.com/questions/22092762/how-to-detect-ctrlc-and-ctrlv-key-pressing-using-regular-expression
+
+function checkButtonPress() {
+  document.body.addEventListener("keydown",function(e){
+      e = e || window.event;
+      var key = e.which || e.keyCode; // keyCode detection
+      var ctrl = e.ctrlKey ? e.ctrlKey : ((key === 17) ? true : false); // ctrl detection
+
+      if ( key == 86 && ctrl ) {
+        paste();
+      } else if ( key == 67 && ctrl ) {
+        copy(currSelected);
+      } else if ( key == 46) {
+        deleteElement(currSelected);
+      }
+
+  },false);
 }
