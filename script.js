@@ -191,7 +191,7 @@ function copy(elm) {
     clipboard.id += "-copy";
     if (clipboard.children[1].textContent.length < 20) {
       clipboard.children[1].textContent += " - Copy";
-    } else if (clipboard.children[1].textContent.length < 21) {
+    } else if (clipboard.children[1].textContent.length < 23) {
       clipboard.children[1].textContent += "...";
     }
   }
@@ -257,9 +257,13 @@ function checkButtonPress() {
       if ( key == 86 && ctrl ) {
         paste();
       } else if ( key == 67 && ctrl ) {
-        copy(currSelected);
+        if (currSelected.id != "recycle-bin" && currSelected.id != "app-background-settings" && currSelected.id != "app-google-chrome") {
+          copy(currSelected);
+        }
       } else if ( key == 46) {
-        deleteElement(currSelected);
+        if (currSelected.id != "recycle-bin" && currSelected.id != "app-background-settings" && currSelected.id != "app-google-chrome") {
+          deleteElement(currSelected);
+        }
       }
 
   },false);
