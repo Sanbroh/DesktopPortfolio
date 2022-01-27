@@ -189,10 +189,18 @@ function copy(elm) {
   if (elm.parentNode.id == "grid-box full") {
     clipboard = elm.cloneNode(true);
     var testcase = clipboard.id;
+    var testcaseName = clipboard.children[1].textContent;
     var duplicates = 0;
 
     while (testcase.substring(testcase.length-5, testcase.length) == "-copy") {
       testcase = testcase.substring(0, testcase.length-5);
+    }
+
+    for (let i = 0; i < testcaseName.length; i++) {
+      if (testcaseName.substring(i, i+7) == " - Copy") {
+        testcaseName = testcaseName.substring(0, i);
+        break;
+      }
     }
 
     for (let i = 0; i < currLocation.childElementCount; i++) {
@@ -206,12 +214,14 @@ function copy(elm) {
 
     for (let i = 0; i < duplicates; i++) {
       clipboard.id += "-copy";
-      if (clipboard.children[1].textContent.length < 20) {
-        clipboard.children[1].textContent += " - Copy";
-      } else if (clipboard.children[1].textContent.length < 23) {
-        clipboard.children[1].textContent += "...";
-      }
     }
+
+    if (duplicates > 1) {
+      clipboard.children[1].textContent = testcaseName + " - Copy" + " (" + String(duplicates) + ")";
+    } else {
+      clipboard.children[1].textContent = testcaseName + " - Copy";
+    }
+
   }
 }
 
@@ -222,7 +232,7 @@ function paste() {
       currLocation.children[i].id = "grid-box full";
       currLocation.children[i].children[0].style.display = "inline-block";
       desktopSelect(currLocation.children[i].children[0]);
-      copy(currLocation.children[i].children[0]);
+      copy(clipboard);
       break;
     }
   }
